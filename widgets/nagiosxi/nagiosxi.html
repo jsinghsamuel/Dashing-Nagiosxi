@@ -1,0 +1,35 @@
+<ul>
+<li data-bind-class="status">
+<h1 class="title" data-bind="title"></h1>
+<div data-showif="status | equals 'error'"> <!-- error -->
+  <h4>Error querying Nagios.</h4>
+</div> <!-- /no error -->
+
+<div data-hideif="status | equals 'error'"> <!-- no error -->
+<div data-hideif="service_criticals | equals 0">
+<h1 data-bind="service_criticals"></h1>
+<h1 data-showif="service_criticals | equals 1">Service critical</h1>
+<h1 data-hideif="service_criticals | equals 1">Service criticals</h1>
+</div>
+
+<div data-hideif="service_warnings | equals 0">
+<h1 data-bind="service_warnings"></h1>
+<h1 data-showif="service_warnings | equals 1">Service warning</h1>
+<h1 data-hideif="service_warnings | equals 1">Service warnings</h1>
+</div>
+
+<div data-hideif="host_down | equals 0">
+<h1 data-bind="host_down "></h1>
+<h1 data-showif="host_down | equals 1">Host Down</h1>
+<h1 data-hideif="host_down | equals 1">Host Down</h1>
+</div>
+<div data-hideif="host_unreachable | equals 0">
+<h1 data-bind="host_unreachable"></h1>
+<h1 data-showif="host_unreachable | equals 1">Host Unreachable</h1>
+<h1 data-hideif="host_unreachable | equals 1">Host Unreachable</h1>
+</div>
+
+<p class="updated-at" data-bind="updatedAtMessage"></p>
+</div> <!-- /no error -->
+</li>
+</ul>
